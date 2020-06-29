@@ -17,9 +17,9 @@ ng serve
 
 En otra consola:
 ```sh
-cd './client-app
+cd './backend-server
 npm install
-ng serve
+node app
 ```
 
 ## Warnings
