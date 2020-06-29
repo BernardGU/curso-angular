@@ -157,6 +157,25 @@ const traducciones = {
     }
 }
 
+var misDestinos = [
+    {nombre: "Fukuoka (Japón)", url: 'https://i.ytimg.com/vi/_8-bz3lZFLs/maxresdefault.jpg'},
+    {nombre: "Berlin (Alemania)", url: 'https://blog.gaijinpot.com/app/uploads/sites/4/2014/12/fukuoka-tower.jpg'},
+];
+
+app.get("/my", (req, res, next) => res.json(misDestinos));
+app.post("/my", (req, res, next) => {
+    console.log(req.body);
+    misDestinos.push(req.body.nuevo);
+    res.json(misDestinos);
+});
+app.delete("/my", (req, res, next) => {
+    console.log(req.body);
+    const id = JSON.stringify(req.body.id);
+    misDestinos.filter(d => d.id != id);
+    res.json(misDestinos);
+});
+
+
 // Gets all the city suggestions
 app.get("/url", (req, res, next) => res.json(ciudades));
 
