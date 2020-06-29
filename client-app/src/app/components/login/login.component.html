@@ -1,0 +1,13 @@
+<form class="form" *ngIf="!authService.getUser()">
+    <div class="form-group">
+        <label for="username">User: (escribe "<em>user</em>")</label>
+        <input type="text" name="username" id="inptUsername" #username>
+    </div>
+    <div class="form-group">
+        <label for="password">Password: (escribe "<em>password</em>")</label>
+        <input type="password" name="password" id="inptPassword" #password>
+    </div>
+    <a class="btn btn-default" (click)="login(username.value, password.value)">Entrar!</a>
+    {{ mensajeError }}
+</form>
+<a class="btn btn-default" (click)="logout()" *ngIf="authService.getUser()">Salir!</a>
